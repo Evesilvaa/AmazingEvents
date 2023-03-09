@@ -46,69 +46,48 @@
      
 
 
-      
-       <div class="category d-flex flex-wrap">
-        <label class="cate1">
-           Category
-          <input  type="checkbox" name="category" value="category">
+      <div id="category" class="category d-flex flex-wrap">
+        <label class="cate">
+           Food Fair
+          <input  type="checkbox" name="category" value="Food Fair" class="cate">
         </label> 
-         <label class="cate2">
-           Category
-          <input type="checkbox" name="category" value="category">
+         <label class="cate">
+           Museum
+          <input type="checkbox" name="category" value="Museum" class="cate">
         </label>
-         <label class="cate3">
-           Category
-          <input type="checkbox" name="category" value="category">
+         <label class="cate">
+           Music Concert
+          <input type="checkbox" name="category" value="Music Concert" class="cate">
         </label>
-         <label class="cate4">
-           Category
-          <input type="checkbox" name="category" value="category">
+         <label class="cate">
+           Costume Party
+          <input type="checkbox" name="category" value="Costume Party" class="cate">
         </label> 
-        <label class="cate5">
-           Category
-          <input type="checkbox" name="category" value="category">
+        <label class="cate">
+          Race
+          <input type="checkbox" name="category" value="Race" class="cate">
         </label>
+        <label class="cate">
+          Book Exchange
+         <input type="checkbox" name="category" value="Book Exchange" class="cate">
+       </label>
+       <label class="cate">
+        Cinema
+       <input type="checkbox" name="category" value="Cinema" class="cate">
+     </label>
       </div>
-      <div class="search d-flex flex-wrap"> 
+      <div class="search d-flex flex-wrap" id="card-filter"> 
         <form class="d-flex" role="search">
-         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
          <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-      </div> 
-    <div class="cards d-flex flex-wrap justify-content-center">
-        <div class="card " style="width: 18rem;">
-           <img src="/assets/Cinema.jpg" class="card-img-top" alt="cinema">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="details.html" class="btn btn-primary">Details</a>
-          </div>
-        </div>
-        <div class="card " style="width: 18rem;">
-          <img src="/assets/Cinema.jpg" class="card-img-top" alt="cinema">
-         <div class="card-body">
-           <h5 class="card-title">Card title</h5>
-           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-           <a href="details.html" class="btn btn-primary">Details</a>
-         </div>
-       </div>
-       <div class="card " style="width: 18rem;">
-        <img src="/assets/Cinema.jpg" class="card-img-top" alt="cinema">
-       <div class="card-body">
-         <h5 class="card-title">Card title</h5>
-         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-         <a href="details.html" class="btn btn-primary">Details</a>
-       </div>
-     </div>
-     <div class="card " style="width: 18rem;">
-      <img src="/assets/Cinema.jpg" class="card-img-top" alt="Cinema">
-      <div class="card-body">
-       <h5 class="card-title">Card title</h5>
-       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-       <a href="details.html" class="btn btn-primary">Details</a>
       </div>
-     </div>
-    </div>
+      
+   
+      <div id="conteiner" class="d-flex flex-wrap gap-4 justify-content-center" > 
+   
+      </div>   
+  
 
       
     </main>
@@ -119,5 +98,7 @@
         <p> Company Amazing Events ®</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="/scripts/data.js"></script>
+    <script src="/scripts/upcoming.js"></script>
 </body>
 </html>

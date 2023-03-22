@@ -1,17 +1,23 @@
-const conteinerCards = document.querySelector ('#conteiner')
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then(response => response.json())
+.then( datosApi=> {
+ // throw new Error('ocurrio un error al traer los datos de la Api')
 
-const cardsGenerated = createCards(data.events)
+const conteinerCards = document.querySelector ('#conteiner');
+
+const cardsGenerated = createCards(data.events);
 
 
-conteinerCards.innerHTML = cardsGenerated
+let events = data.events;
+
+conteinerCards.innerHTML = cardsGenerated;
 
 
 
 function createCards(arrayevents) {
   let cards = ''
-  for (const event of data.events) {
+  for (const event of arrayevents) {
 
-   cards += `<div class="card text-black" style="width: 18rem ;">
+   cards += `<div class="card text-black" style="width: 18rem ; id="card-${event._id}">
     <img src="${event.image}" class="card-img-top" alt="image Event">
     <div class="card-body">
     <h5 class="card-title ">${event.name}</h5>
@@ -26,23 +32,14 @@ function createCards(arrayevents) {
   </div>
   </div>` 
 }
-return cards
-}
-
-// details 
-
-function Details(id) {
-  window.location.href = `./details.html?id=${id}`
-  
+return cards;
 }
 
 
-conteinerCards.innerHTML = cardsGenerated;
 
-// category
-// Obtener todos los elementos  de categoría
+// category checkbox 
 const categoryInputs = document.querySelectorAll("input[type=checkbox]");
- console.log(categoryInputs);
+ //console.log(categoryInputs);
 
 
 function filterCategory(data, category){
@@ -50,31 +47,63 @@ function filterCategory(data, category){
 }
 
 categoryInputs.forEach(function(checkbox){
-  checkbox.addEventListener("change" ,function(){
-    const category =Array.from(categoryInputs)
+  checkbox.addEventListener("change" ,eventsFilter)
+});
+
+
+// search 
+const searchInput = document.getElementById('search');
+
+
+searchInput.addEventListener('input', eventsFilter)
+
+
+function eventsFilter(){
+  const category =Array.from(categoryInputs)
     .filter((i)=> i.checked)
     .map((i)=> i.value);
 
-    if (category.length > 0) {
-      filterCategory(data.events,category);
+  let searchText = searchInput.value.toLowerCase()
+  
+  let eventsFilter = events.filter((e)=>e.name.toLowerCase().includes(searchText) && (category.includes(e.category) || category.length == 0 ) )
+  console.log(eventsFilter);
+
+// para que imprima 
+  const cardsGenerated = createCards(eventsFilter);
+  conteinerCards.innerHTML= cardsGenerated;
+
+
+
+
+
+    // if (category.length > 0) {
+    //   filterCategory(data.events,category);
      
 
-    }
-    else {
-      conteinerCards.innerHTML= cardsGenerated;
+    // }
+    // else {
+    //   conteinerCards.innerHTML= cardsGenerated;
       
-    }
-  });
-});
+    // }
+      
+}
 
 
 
-//search--------------------------------
 
-const searchEvent = document.getElementById('search');
 
-searchEvent.addEventListener("change",()=>{
-  let eventFilter = data.events.filter((event)=> event.name.toLowerCase().includes(searchEvent.value.toLowerCase()))
 
-  conteinerCards.innerHTML = createCards(eventFilter);
-});
+
+
+
+
+// details 
+
+function Details(id) {
+  window.location.href = `./details.html?id=${id}`
+  
+}
+conteinerCards.innerHTML = cardsGenerated;
+})
+.catch(error => console.log(error.message))
+

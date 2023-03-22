@@ -1,3 +1,8 @@
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then(response => response.json())
+.then( datosApi=> {
+  //throw new Error('ocurrio un error al traer los datos de la Api')
+
+
 const conteinerCards = document.querySelector ('#conteiner')
 
 
@@ -7,6 +12,8 @@ const pastEvents = data.events.filter(event => event.date < data.currentDate);
 console.log(pastEvents);
 
 conteinerCards.innerHTML= pastEvents
+
+let events = data.events;
 
 let cardsGenerated =createCards(pastEvents);
 conteinerCards.innerHTML = cardsGenerated
@@ -39,17 +46,62 @@ function Details(id) {
   window.location.href = `./details.html?id=${id}`
   
 }
+// category checkbox 
+const categoryInputs = document.querySelectorAll("input[type=checkbox]");
+ //console.log(categoryInputs);
 
 
-const inputCategory = document.querySelector('#category');
+function filterCategory(data, category){
+  const filterArray = data.filter((e)=> category.indexOf(e.category) !== -1);
+}
 
-inputCategory.addEventListener('click', (e) =>{
-  console.log(e.target);
+categoryInputs.forEach(function(checkbox){
+  checkbox.addEventListener("change" ,eventsFilter)
+});
+
+
+// search 
+const searchInput = document.getElementById('search');
+
+
+searchInput.addEventListener('input', eventsFilter)
+
+
+function eventsFilter(){
+  const category =Array.from(categoryInputs)
+    .filter((i)=> i.checked)
+    .map((i)=> i.value);
+
+  let searchText = searchInput.value.toLowerCase()
+  
+  let eventsFilter = events.filter((e)=>e.name.toLowerCase().includes(searchText) && (category.includes(e.category) || category.length == 0 ) )
+  console.log(eventsFilter);
+
+// para que imprima 
+  const cardsGenerated = createCards(eventsFilter);
+  conteinerCards.innerHTML= cardsGenerated;
+
+
+
+
+
+    // if (category.length > 0) {
+    //   filterCategory(data.events,category);
+     
+
+    // }
+    // else {
+    //   conteinerCards.innerHTML= cardsGenerated;
+      
+    // }
+      
+}
 })
+.catch(error => console.log(error.message))
 
-let category =["Food Fair", "Museum", "Music Concert", "Costume Party", "Race", "Book Exchange","Cinema"]
 
-let filterCate= data.events.filter ((e)=> data.events.includes());
-console.log(category);
 
-filterCate.innerHTML = createCards;
+
+
+
+

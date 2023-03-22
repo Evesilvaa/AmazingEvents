@@ -44,57 +44,54 @@
         </div>
       
       </section>
-      <div class="table">
-      <table>
-        <tr>
-          <th colspan="3" class="highlight">Events statistics</th>
-        </tr>
-        <tr>
-          <th >Events with the highest percentage of  attendances</th>
-          <th>Events with the lowest percentage of attendances</th>
-          <th>Events with larger capacity</th>
-        </tr>
-        <tr>
-          <td><br></td>
-          <td></td>
-          <td></td>
-        </tr>
-      
-
-      
-        <tr>
-          <th colspan="3" class="highlight">Upcoming events statistics by category</th>
-        </tr>
-        <tr>
-          <th >Categories</th>
-          <th>Revenues</th>
-          <th>Percentage of attendance</th>
-        </tr>
-        <tr>
-          <td><br></td>
-          <td></td>
-          <td></td>
-        </tr>
-   
-
-      
-        <tr>
-          <th colspan="3" class="highlight">Past Events statistic by category</th>
-        </tr>
-        <tr>
-          <th >Categories</th>
-          <th>Revenues</th>
-          <th>Percentage of attendance</th>
-        </tr>
-        <tr>
-          <td><br></td>
-          <td></td>
-          <td></td>
-        </tr>
+    
+<div class="container">
+  <h3 class="table1">Events Statistics</h3>
+      <table class="table">
+          <thead>
+              <tr>
+              <th rowspan="1" >Events with the highest percentage of altendance</th>
+              <th rowspan="1">Events with the lowest percentage of altendance</th>
+              <th rowspan="1">Event with larger capacity</th>                            
+              </tr>
+          </thead>                        
+          <tbody id="capacityLarger">
+              <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          </tbody>
       </table>
-    </div>
-      
-    </main>
+
+      <h3 class="table1">Upcoming events statistics by category</h3>
+          <table class="table">
+              <thead>                    
+              <tr>   
+                  <th rowspan="1" >Category</th>
+                  <th rowspan="1">Revenues</th>
+                  <th rowspan="1">Percentege of attendance</th>                            
+              </tr>
+              </thead>
+              <tbody id="upcoming">
+              </tbody>                            
+          </table>
+
+          <h3 class="table1">Past Events statistic by category</h3>
+          <table class="table">
+              <thead>
+                  <tr >
+                      <th rowspan="1" >Category</th>
+                      <th rowspan="1">Revenues</th>
+                      <th rowspan="1">Percentege of attendance</th>                            
+                  </tr>
+              </thead>
+              <tbody id="past">
+              </tbody>
+          </table>
+</div>
+
+</main>
         
       
     <footer class="d-flex justify-content-center " >
@@ -104,5 +101,7 @@
       <p> Company Amazing Events ®</p>
   </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- <script src='./amazing.json'></script> -->
+    <script src= "./scripts/stats.js"></script>
 </body>
 </html>

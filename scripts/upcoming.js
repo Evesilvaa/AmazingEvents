@@ -1,3 +1,8 @@
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then(response => response.json())
+.then( datosApi=> {
+  //throw new Error('ocurrio un error al traer los datos de la Api')
+
+
 const conteinerCards = document.querySelector ('#conteiner')
 
 
@@ -11,7 +16,11 @@ console.log(futureEvents);
 
 conteinerCards.innerHTML= futureEvents
 
+let events = data.events;
+
+
 let cardsGenerated= createCards(futureEvents)
+conteinerCards.innerHTML = cardsGenerated
 
 
 
@@ -46,11 +55,56 @@ function Details(id) {
 }
 
 
+// category checkbox 
+const categoryInputs = document.querySelectorAll("input[type=checkbox]");
+ //console.log(categoryInputs);
 
-conteinerCards.innerHTML = cardsGenerated
 
-const inputCategory = document.querySelector('#category');
+function filterCategory(data, category){
+  const filterArray = data.filter((e)=> category.indexOf(e.category) !== -1);
+}
 
-inputCategory.addEventListener('click', (e) =>{
-  console.log(e.target);
+categoryInputs.forEach(function(checkbox){
+  checkbox.addEventListener("change" ,eventsFilter)
+});
+
+
+// search 
+const searchInput = document.getElementById('search');
+
+
+searchInput.addEventListener('input', eventsFilter)
+
+
+function eventsFilter(){
+  const category =Array.from(categoryInputs)
+    .filter((i)=> i.checked)
+    .map((i)=> i.value);
+
+  let searchText = searchInput.value.toLowerCase()
+  
+  let eventsFilter = events.filter((e)=>e.name.toLowerCase().includes(searchText) && (category.includes(e.category) || category.length == 0 ) )
+  console.log(eventsFilter);
+
+// para que imprima 
+  const cardsGenerated = createCards(eventsFilter);
+  conteinerCards.innerHTML= cardsGenerated;
+
+
+
+
+
+    // if (category.length > 0) {
+    //   filterCategory(data.events,category);
+     
+
+    // }
+    // else {
+    //   conteinerCards.innerHTML= cardsGenerated;
+      
+    // }
+      
+}
 })
+.catch(error => console.log(error.message))
+

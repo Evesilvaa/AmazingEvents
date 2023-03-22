@@ -47,42 +47,47 @@
 
 
       
-      <div id="category" class="category d-flex flex-wrap">
-        <label class="cate">
-           Food Fair
-          <input  type="checkbox" name="category" value="Food Fair" class="cate">
-        </label> 
-         <label class="cate">
-           Museum
-          <input type="checkbox" name="category" value="Museum" class="cate">
-        </label>
-         <label class="cate">
-           Music Concert
-          <input type="checkbox" name="category" value="Music Concert" class="cate">
-        </label>
-         <label class="cate">
-           Costume Party
-          <input type="checkbox" name="category" value="Costume Party" class="cate">
-        </label> 
-        <label class="cate">
-          Race
-          <input type="checkbox" name="category" value="Race" class="cate">
-        </label>
-        <label class="cate">
-          Book Exchange
-         <input type="checkbox" name="category" value="Book Exchange" class="cate">
-       </label>
-       <label class="cate">
-        Cinema
-       <input type="checkbox" name="category" value="Cinema" class="cate">
-     </label>
-      </div>
+      <form id="formCategory">
+        <fieldset id="category" class="category d-flex flex-wrap">
+          
+          <label for="Food Fair" class="category">
+             Food Fair
+            <input  type="checkbox" name="category" value="Food Fair" >
+          </label> 
+           <label  for= "Museum" class="category">
+             Museum
+            <input type="checkbox" name="category" value="Museum" >
+          </label>
+           <label for= "Music Concert" class="category">
+             Music Concert
+            <input type="checkbox" name="category" value="Music Concert">
+          </label>
+           <label  for= "Costume Party" class="category">
+             Costume Party
+            <input type="checkbox" name="category" value="Costume Party" >
+          </label> 
+          <label for= "Race" class="category">
+            Race
+            <input type="checkbox" name="category" value="Race" >
+          </label>
+          <label  for= "Book Exchange"class="category">
+            Book Exchange
+           <input type="checkbox" name="category" value="Book Exchange" >
+         </label>
+         <label for= "Cinema" class="category">
+          Cinema
+         <input type="checkbox" name="category" value="Cinema" >
+         </label>
+        </fieldset>
+          
+      </form>
+        
       <div class="search d-flex flex-wrap" id="card-filter"> 
-        <form class="d-flex" role="search">
-         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
-         <button class="btn btn-outline-success" type="submit">Search</button>
+        <form class="d-flex " role="search">
+         <input class="mx-3 input-search" type="search" placeholder="Search" aria-label="Search" id="search">
+         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
         </form>
-      </div> 
+      </div>
     <div id="conteiner" class="cards d-flex flex-wrap justify-content-center">
         
     </div>

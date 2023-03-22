@@ -80,7 +80,7 @@ tr>td {
 
 
 
-.table{
+.table.tableStatistics{
    
    display:flex;
    justify-content: center;
@@ -89,9 +89,28 @@ tr>td {
    padding:18px ;
   
 }
+h3.table1{
+    font-family: sans-serif;
+    color: #c92c6d;
+}
 
-.highlight{
+.table{
+       
+   
+  
+    border: solid 3px #243763;
+    border-collapse: collapse;
+    margin:50px;
+    text-align: center;
+    
+    
+    
+    
+}
+.table th{
     background-color:#C92C6D;
+    padding: 7px;
+
 }
 
 .contact{
@@ -100,6 +119,17 @@ tr>td {
 
 .details{
     padding-top:30px;
+    align-items: center;
+}
+
+.card-body{
+    height: 25rem;
+}
+
+.card-img-top{
+    width: 286px;
+    height: 190.56px;
+
 }
 footer{
     min-height: 3vh;

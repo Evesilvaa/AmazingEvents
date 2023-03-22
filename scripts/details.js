@@ -1,3 +1,7 @@
+fetch('https://mindhub-xj03.onrender.com/api/amazing').then(response => response.json())
+.then( datosApi=> {
+  //throw new Error('ocurrio un error al traer los datos de la Api')
+
 let params = new URLSearchParams(document.location.search)
 let id = params.get("id")
 console.log(id);
@@ -30,7 +34,8 @@ let cards = '';
 
 
 container.innerHTML = cards
-
+})
+.catch(error => console.log(error.message))
 
 
 
